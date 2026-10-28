@@ -1,0 +1,6 @@
+log/
+notas/
+*.exe
+*.twinproj
+*.vbw
+*.log

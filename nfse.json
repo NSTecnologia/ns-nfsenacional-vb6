@@ -1,0 +1,81 @@
+{
+	"DPS": {
+		"versao": "1.01",
+		"infDPS": {
+			"tpAmb": "2",
+			"dhEmi": "2026-10-28T10:00:00-03:00",
+			"verAplic": "NS1.0.0",
+			"serie": "1",
+			"nDPS": "43",
+			"dCompet": "2026-10-28",
+			"tpEmit": "1",
+			"cLocEmi": "3106200",
+			"prest": {
+				"CNPJ": "00000000000000",
+				"fone": "0000000000",
+				"email": "contato@suaempresa.com.br",
+				"regTrib": {
+					"opSimpNac": "3",
+					"regApTribSN": "1",
+					"regEspTrib": "0"
+				}
+			},
+			"toma": {
+				"CNPJ": "00000000000000",
+				"xNome": "TOMADOR DE TESTE LTDA",
+				"end": {
+					"endNac": {
+						"cMun": "4316402",
+						"CEP": "97590000"
+					},
+					"xLgr": "RUA EXEMPLO",
+					"nro": "100",
+					"xCpl": "SALA 1",
+					"xBairro": "CENTRO"
+				}
+			},
+			"serv": {
+				"locPrest": {
+					"cLocPrestacao": "3106200"
+				},
+				"cServ": {
+					"cTribNac": "171102",
+					"cTribMun": "002",
+					"xDescServ": "Mensalidade de sistema",
+					"cNBS": "103012200"
+				}
+			},
+			"valores": {
+				"vServPrest": {
+					"vServ": "4302.54"
+				},
+				"trib": {
+					"tribMun": {
+						"tribISSQN": "1",
+						"tpRetISSQN": "1"
+					},
+					"tribFed": {
+						"piscofins": {
+							"CST": "01",
+							"vBCPisCofins": "4302.54",
+							"pAliqPis": "0.65",
+							"pAliqCofins": "3.00",
+							"vPis": "27.97",
+							"vCofins": "129.08",
+							"tpRetPisCofins": "1"
+						},
+						"vRetIRRF": "64.54",
+						"vRetCSLL": "43.03"
+					},
+					"totTrib": {
+						"pTotTrib": {
+							"pTotTribFed": "11.33",
+							"pTotTribEst": "0.00",
+							"pTotTribMun": "5.00"
+						}
+					}
+				}
+			}
+		}
+	}
+}

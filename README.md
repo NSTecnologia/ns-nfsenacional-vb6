@@ -16,6 +16,10 @@ Utilizando a NS API, este exemplo - criado em Visual Basic 6 - possui funcionali
    + **modJSON.bas** - leitura e geração de JSON.
 3. Defina o seu **token** na constante `TOKEN` do módulo **NSNFSeNacional.bas**.
 
+> **Leiaute NT 009 (IBS/CBS):** a emissão envia o header `nt: nt009` (constante `VERSAO_NT`), que faz a API gerar a DPS no leiaute novo exigido pela Receita. Nesse leiaute o campo `finNFSe` é obrigatório e vai na raiz do `infDPS`, logo após `tpEmit`. Sem o header, a API usa o leiaute antigo e a Receita rejeita com `E1235` (*"invalid child element 'cLocEmi' ... expected 'cMotivoEmisTI, finNFSe'"*).
+>
+> O conteúdo pode ser enviado em **JSON** ou em **XML** (`tpConteudo` = `json` ou `xml`); no formulário de exemplo o tipo segue a extensão do arquivo.
+
 **Não é preciso instalar nenhuma DLL ou OCX.** O exemplo usa apenas componentes que já vêm no Windows:
 
 Componente | Uso

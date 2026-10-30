@@ -19,6 +19,12 @@ Public Const URL_ENVIO As String = "https://nfsenacional.ns.eti.br/nfse/issue"
 Public Const URL_CONS_STATUS As String = "https://nfsenacional.ns.eti.br/nfse/issue/status"
 Public Const URL_DOWNLOAD As String = "https://nfsenacional.ns.eti.br/nfse/get"
 
+' Leiaute da DPS enviado no header "nt" da emissão:
+'   "nt009" -> leiaute novo (NT 009 / RTC IBS-CBS), exigido pela Receita.
+'              finNFSe vai na raiz do infDPS, antes de cLocEmi.
+'   ""      -> não envia o header (leiaute antigo, NT 004).
+Public Const VERSAO_NT As String = "nt009"
+
 ' Tempo de espera entre o envio e a consulta (ms)
 Public Const TEMPO_ESPERA As Long = 400
 
@@ -32,7 +38,8 @@ Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 ' Envia um conteúdo via POST para a API e devolve o texto da resposta.
 ' Em falha de comunicação devolve "" e grava o erro no log.
 '------------------------------------------------------------------------------
-Public Function enviaConteudoParaAPI(ByVal conteudo As String, ByVal url As String, ByVal tpConteudo As String) As String
+Public Function enviaConteudoParaAPI(ByVal conteudo As String, ByVal url As String, ByVal tpConteudo As String, _
+                                     Optional ByVal nt As String = "") As String
     Dim http As Object
     Dim resposta() As Byte
     Dim corpo As Variant
@@ -50,6 +57,7 @@ Public Function enviaConteudoParaAPI(ByVal conteudo As String, ByVal url As Stri
 
     http.SetTimeouts 30000, 30000, 60000, 60000
     http.SetRequestHeader "X-AUTH-TOKEN", TOKEN
+    If Len(nt) > 0 Then http.SetRequestHeader "nt", nt
 
     Select Case LCase$(tpConteudo)
         Case "txt"
@@ -97,7 +105,7 @@ Public Function emitirDocumento(ByVal conteudo As String, ByVal tpConteudo As St
     gravarLinhaLog "NFSE: ", "[ENVIO_DADOS]"
     gravarLinhaLog "NFSE: ", conteudo
 
-    resposta = enviaConteudoParaAPI(conteudo, URL_ENVIO, tpConteudo)
+    resposta = enviaConteudoParaAPI(conteudo, URL_ENVIO, tpConteudo, VERSAO_NT)
 
     gravarLinhaLog "NFSE: ", "[ENVIO_RESPOSTA]"
     gravarLinhaLog "NFSE: ", resposta

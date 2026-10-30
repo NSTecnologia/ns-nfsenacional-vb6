@@ -14,16 +14,16 @@ Option Explicit
 ' Defina aqui o token de acesso fornecido pela NS Tecnologia
 Private Const TOKEN As String = "Seu_Token_Aqui"
 
-' Endpoints NS API
-Public Const URL_ENVIO As String = "https://nfsenacional.ns.eti.br/nfse/issue"
-Public Const URL_CONS_STATUS As String = "https://nfsenacional.ns.eti.br/nfse/issue/status"
-Public Const URL_DOWNLOAD As String = "https://nfsenacional.ns.eti.br/nfse/get"
-
 ' Leiaute da DPS enviado no header "nt" da emissão:
 '   "nt009" -> leiaute novo (NT 009 / RTC IBS-CBS), exigido pela Receita.
 '              finNFSe vai na raiz do infDPS, antes de cLocEmi.
 '   ""      -> não envia o header (leiaute antigo, NT 004).
 Public Const VERSAO_NT As String = "nt009"
+
+' Endpoints NS API
+Public Const URL_ENVIO As String = "https://nfsenacional.ns.eti.br/nfse/issue"
+Public Const URL_CONS_STATUS As String = "https://nfsenacional.ns.eti.br/nfse/issue/status"
+Public Const URL_DOWNLOAD As String = "https://nfsenacional.ns.eti.br/nfse/get"
 
 ' Tempo de espera entre o envio e a consulta (ms)
 Public Const TEMPO_ESPERA As Long = 400
